@@ -1,5 +1,5 @@
-// Абдулов ТИмур 
-// Flure
+// Абдулов Тимур 
+// Fleur
 
 var can = document.getElementById('canvasID');// Получаю документ 
 var ctx = can.getContext('2d'); // Получаю контекст 
