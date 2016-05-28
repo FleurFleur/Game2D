@@ -23,6 +23,25 @@ document.onkeydown = function(e){
 document.onkeyup   = function(e){
 	press_key = 0;
 }
+can.onmousedown = function(){
+	var bullet=null;
+			for (var f=0;f<OBS.length;f++)
+			if (OBS[f].t==TipBul)   // Если это пуля
+			if (OBS[f].vid()==false) // если она не в зоне видимости 
+			bullet=OBS[f]; 
+			
+			if (bullet==null) bullet = new CreBul(character.x+2.5,character.y+2.5);	 	
+
+			bullet.x = character.x+2.5;
+			bullet.y = character.y+2.5;
+ 
+			var rX = (mouseX - bullet.x);// Вычисляем растояние по X
+			var rY = (mouseY - bullet.y);// Вычисляем растояние по Y
+			var ras = Math.sqrt((rX*rX)+(rY*rY));// Рстояние между точками в писеселях 
+			 
+			bullet.speedX = rX/ras;
+			bullet.speedY = rY/ras;
+}
 // Униферсальные функции 
 function TrRan(n){
 return (Math.random()*n)+1|0;	
@@ -71,26 +90,6 @@ function CrePer(x,y){ // Конструктор персонажа
 		case 68:// D
 			character.x += SPEED;
 		break;
-		case 32:// spacebar
-		 
-			var bullet=null;
-			for (var f=0;f<OBS.length;f++)
-			if (OBS[f].t==TipBul)   // Если это пуля
-			if (OBS[f].vid()==false) // если она не в зоне видимости 
-			bullet=OBS[f]; 
-			
-			if (bullet==null) bullet = new CreBul(this.x+2.5,this.y+2.5);	 	
-
-			bullet.x = this.x+2.5;
-			bullet.y = this.y+2.5;
- 
-			var rX = (mouseX - bullet.x);// Вычисляем растояние по X
-			var rY = (mouseY - bullet.y);// Вычисляем растояние по Y
-			var ras = Math.sqrt((rX*rX)+(rY*rY));// Рстояние между точками в писеселях 
-			 
-			bullet.speedX = rX/ras;
-			bullet.speedY = rY/ras;
-
 		default:
 		break;
 	}		
