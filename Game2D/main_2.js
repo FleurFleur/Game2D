@@ -13,7 +13,7 @@ function draw(){
 }
 // Главный игровой цикл
 function start(){
-	setInterval(fuction(){
+	setInterval(function(){
 		changeData();
 		draw();
 	});
