@@ -1,3 +1,6 @@
+// Абдулов ТИмур 
+// Flure
+
 var can = document.getElementById('canvasID');// Получаю документ 
 var ctx = can.getContext('2d'); // Получаю контекст 
 // Координаты мышки 
